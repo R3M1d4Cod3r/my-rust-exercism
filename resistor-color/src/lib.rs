@@ -20,12 +20,24 @@ pub fn color_to_value(_color: ResistorColor) -> u32 {
 }
 
 pub fn value_to_color_string(value: u32) -> String {
-    unimplemented!(
-        "convert the value {} into a string representation of color",
-        value
-    )
+     match value{
+    0 =>format!("{:?}",ResistorColor::Black ),
+    1 =>format!("{:?}",ResistorColor::Brown ),
+    2 =>format!("{:?}",ResistorColor::Red ),
+    3 =>format!("{:?}",ResistorColor::Orange ),
+    4 =>format!("{:?}",ResistorColor::Yellow ),
+    5 =>format!("{:?}",ResistorColor::Green ),
+    6 =>format!("{:?}",ResistorColor::Blue ),
+    7 =>format!("{:?}",ResistorColor::Violet ),
+    8 =>format!("{:?}",ResistorColor::Grey ),
+    9 =>format!("{:?}",ResistorColor::White ),
+    10_u32.. => String::from("value out of range"),
+    }
+
+
+    
 }
 
 pub fn colors() -> Vec<ResistorColor> {
-    unimplemented!("return a list of all the colors ordered by resistance")
+    all::<ResistorColor>().into_iter().collect::<Vec<_>>()
 }
